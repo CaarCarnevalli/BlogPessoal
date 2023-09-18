@@ -62,10 +62,10 @@ public class UsuarioControllerTest {
 	public void naoDeveDuplicarUsuario() {
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, 
-			"Gabriela Martins", "GabiMartins@email.com", "12345678", "-",null));
+			"Ana Carolina", "AnaCarol@gmail.com", "12345679", "-",null));
 
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(new Usuario(0L, 
-			"Gabriela Martins", "GabiMartis@email.com", "12345678", "-",null));
+			"Ana Carolina", "AnaCarol@gmail.com", "12345679", "-",null));
 
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate
 			.exchange("/usuarios/cadastrar", HttpMethod.POST, corpoRequisicao, Usuario.class);
@@ -81,7 +81,7 @@ public class UsuarioControllerTest {
 			"Carolina Carnevali", "CarolCar@gmail.com", "Carol666", "-",null));
 
 		Usuario usuarioUpdate = new Usuario(usuarioCadastrado.get().getId(), 
-			"Lucas Motta", "Lucas_Motta@email.com.br", "Lucas999" , "-",null);
+			"Carolina Carnevali", "CarolCar@gmail.com", "Carol666" , "-",null);
 		
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(usuarioUpdate);
 
